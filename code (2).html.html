@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Watch Anime for Free</title>
+  <meta name="description" content="Watch anime for free from trusted streaming sites. Enjoy your favorite anime online with no cost." />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body, h1, ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #ffffff);
+      color: #222;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      scroll-behavior: smooth;
+      transition: background-color 0.3s, color 0.3s;
+      padding: 0 15px;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      margin-top: 40px;
+      flex-grow: 1;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #3498db;
+      width: 100%;
+      padding: 15px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    header h1 {
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      user-select: none;
+    }
+
+    #darkModeToggle {
+      padding: 10px 24px;
+      font-size: 1rem;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s, box-shadow 0.3s;
+      user-select: none;
+      box-shadow: 0 4px 8px rgba(41, 128, 185, 0.4);
+    }
+
+    #darkModeToggle:hover,
+    #darkModeToggle:focus {
+      background-color: #1c5980;
+      outline: none;
+      box-shadow: 0 6px 12px rgba(28, 89, 128, 0.7);
+    }
+
+    main {
+      margin-top: 30px;
+    }
+
+    ul {
+      list-style: none;
+      max-width: 400px;
+      margin: 0 auto 50px auto;
+      padding: 0;
+      border: 2px solid #3498db;
+      border-radius: 12px;
+      background-color: #eaf4fc;
+      box-shadow: 0 6px 15px rgba(52, 152, 219, 0.25);
+      transition: box-shadow 0.3s;
+    }
+
+    ul:hover {
+      box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+    }
+
+    li {
+      padding: 18px 25px;
+      border-bottom: 1px solid #3498db;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      transition: background-color 0.3s;
+      cursor: default;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    li:hover {
+      background-color: #d6e9fb;
+    }
+
+    li big u b {
+      color: #2980b9;
+      user-select: text;
+    }
+
+    a {
+      text-decoration: none;
+      color: #2980b9;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+
+    a:hover,
+    a:focus {
+      color: #1abc9c;
+      outline: none;
+      text-decoration: underline;
+    }
+
+    .main-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 60px auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+
+    .main-image:hover,
+    .main-image:focus {
+      transform: scale(1.03);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+      outline: none;
+      cursor: pointer;
+    }
+
+    footer {
+      width: 100%;
+      padding: 15px 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      user-select: none;
+      margin-top: auto;
+    }
+
+    /* Dark mode styles */
+    body.dark-mode {
+      background: linear-gradient(135deg, #121212, #1e1e1e);
+      color: #eee;
+    }
+
+    body.dark-mode header {
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+    }
+
+    body.dark-mode #darkModeToggle {
+      background-color: #1abc9c;
+      color: #121212;
+      box-shadow: 0 4px 8px rgba(26, 188, 156, 0.6);
+    }
+
+    body.dark-mode #darkModeToggle:hover,
+    body.dark-mode #darkModeToggle:focus {
+      background-color: #16a085;
+      box-shadow: 0 6px 12px rgba(22, 160, 133, 0.8);
+    }
+
+    body.dark-mode ul {
+      background-color: #1e1e1e;
+      border-color: #1abc9c;
+      box-shadow: 0 6px 15px rgba(26, 188, 156, 0.3);
+    }
+
+    body.dark-mode ul:hover {
+      box-shadow: 0 8px 25px rgba(26, 188, 156, 0.5);
+    }
+
+    body.dark-mode li {
+      border-color: #16a085;
+      cursor: default;
+    }
+
+    body.dark-mode li:hover {
+      background-color: #144d44;
+    }
+
+    body.dark-mode li big u b {
+      color: #1abc9c;
+    }
+
+    body.dark-mode a {
+      color: #1abc9c;
+    }
+
+    body.dark-mode a:hover,
+    body.dark-mode a:focus {
+      color: #16a085;
+      text-decoration: underline;
+      outline: none;
+    }
+
+    body.dark-mode .main-image:hover,
+    body.dark-mode .main-image:focus {
+      box-shadow: 0 12px 35px rgba(26, 188, 156, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Watch Anime for Free</h1>
+    <button id="darkModeToggle" aria-pressed="false" aria-label="Toggle dark mode">Toggle Dark Mode</button>
+  </header>
+
+  <div class="container">
+    <main>
+      <ul>
+        <li>
+          <big><u><b>Click Here:</b></u></big>
+          <a href="https://aniwatchtv.to/" target="_blank" rel="noopener noreferrer">Watch it</a>
+        </li>
+        <li>
+          <big><u><b>Click Here:</b></u></big>
+          <a href="https://watchanimeworld.in/" target="_blank" rel="noopener noreferrer">Watch it</a>
+        </li>
+        <li>
+          <big><u><b>Click Here:</b></u></big>
+          <a href="https://hianime.cx/home" target="_blank" rel="noopener noreferrer">Watch it</a>
+        </li>
+      </ul>
+
+      <img
+        src="https://static.crunchyroll.com/cr-acquisition/assets/img/start/hero/background-desktop.jpg"
+        alt="Anime background"
+        class="main-image"
+        width="1200"
+        loading="lazy"
+        tabindex="0"
+      />
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2024 Watch Anime for Free. All rights reserved.
+  </footer>
+
+  <script>
+    const toggleButton = document.getElementById('darkModeToggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      toggleButton.setAttribute('aria-pressed', isDark);
+      toggleButton.textContent = isDark ? 'Switch to Light Mode' : 'Toggle Dark Mode';
+    });
+  </script>
+</body>
+</html>
